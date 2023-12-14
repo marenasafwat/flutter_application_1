@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "297893746942",
+    "project_id": "student-s-assistant-app-c1152",
+    "storage_bucket": "student-s-assistant-app-c1152.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297893746942:android:41a533153154fce5f2edaf",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfL1PpavNU6jupiQDGvcBX0A5uI-Q0xP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
