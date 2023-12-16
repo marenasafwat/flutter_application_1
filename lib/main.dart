@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_application_1/Screen/HomeScreen.dart';
 import 'package:flutter_application_1/Screen/login_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'firebase_options.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  var defaultFirebase0ptions;
-  Firebase.initializeApp(options: defaultFirebase0ptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

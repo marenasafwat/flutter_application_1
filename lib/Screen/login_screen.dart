@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'dart:js';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,10 +16,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //bool _isObscure3 = true;
-  final _formkey = GlobalKey<FormState>();
-
   bool visible = false;
+  final _formkey = GlobalKey<FormState>();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
@@ -27,170 +27,176 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          colors: [
-            Color.fromRGBO(0, 57, 202, 0.98),
-            Color.fromARGB(255, 116, 211, 255),
-            Colors.white
-          ],
-        ),
-      ),
-      key: _formkey,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: 80),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Welcome",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                    ),
-                  ),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                colors: [
+                  Color.fromRGBO(0, 57, 202, 0.98),
+                  Color.fromARGB(255, 116, 211, 255),
+                  Colors.white
                 ],
               ),
             ),
-            SizedBox(height: 12),
-            Form(
+            child: Form(
               key: _formkey,
               child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TextFormField(
-                          controller: emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Email',
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 80),
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Login",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 40,
+                            ),
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty ||
-                                !RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
-                              return 'Invalid email address';
-                            }
-                            return null;
-                          },
-                        ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Welcome",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TextFormField(
-                          controller: passwordController,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Password',
+                    SizedBox(height: 12),
+                    Form(
+                      key: _formkey,
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: TextFormField(
+                                  controller: emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Email',
+                                  ),
+                                  validator: (value) {
+                                    if (value!.isEmpty ||
+                                        !RegExp(r'\S+@\S+\.\S+')
+                                            .hasMatch(value)) {
+                                      return 'Invalid email address';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                            ),
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty || value.length < 8) {
-                              return 'Password should be at least 8 characters';
-                            }
-                            return null;
-                          },
-                        ),
+                          SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: TextFormField(
+                                  controller: passwordController,
+                                  obscureText: true,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Password',
+                                  ),
+                                  validator: (value) {
+                                    if (value!.isEmpty || value.length < 8) {
+                                      return 'Password should be at least 8 characters';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                ],
-              ),
-              /*validator: (value) {
+                      /*validator: (value) {
                 passwordController.text = value!;
               }*/
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Text(
-              "Forgot password?",
-              style: TextStyle(color: const Color.fromARGB(255, 15, 1, 71)),
-            ),
-            Container(
-              height: 50,
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: const Color.fromARGB(255, 15, 1, 71)),
-              child: Center(
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: visible,
-                child: Container(
-                    child: CircularProgressIndicator(
-                  color: Color.fromARGB(255, 28, 5, 132),
-                ))),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Don`t have an account?',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 15, 1, 71),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Admin()),
-                    );
-                  },
-                  child: Text(
-                    'Register now',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 15, 1, 71),
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ]),
-    ));
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Text(
+                      "Forgot password?",
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 15, 1, 71)),
+                    ),
+                    Container(
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: const Color.fromARGB(255, 15, 1, 71)),
+                      child: Center(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Visibility(
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        visible: visible,
+                        child: Container(
+                            child: CircularProgressIndicator(
+                          color: Color.fromARGB(255, 28, 5, 132),
+                        ))),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'login as an admin ...',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 15, 1, 71),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Admin()),
+                            );
+                          },
+                          child: Text(
+                            'login',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 15, 1, 71),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ]),
+            )));
   }
 }
 
@@ -199,7 +205,7 @@ Future<void> saveUser() async {
   await prefs.setBool('islogin', true);
 }
 
-void route() {
+void route(BuildContext context) async {
   // ignore: non_constant_identifier_names
   User? user = FirebaseAuth.instance.currentUser;
   var db = FirebaseFirestore.instance
@@ -230,10 +236,15 @@ void route() {
 }
 
 void signIn(String email, String password) async {
-  var _formkey;
+  final _formkey = GlobalKey<FormState>();
   if (_formkey.currentState!.validate()) {
     try {
-      route();
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      await saveUser();
+      route(context as BuildContext);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
